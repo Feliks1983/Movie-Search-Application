@@ -1,0 +1,128 @@
+
+@media screen and (min-width: 420px) and (max-width: 1010px) {
+  .component-content {
+    display: flex;
+    width: 388px;
+    flex-wrap: wrap;
+    height: 245px;
+    margin-top: 34px;
+    box-shadow: 0px 4px 12px 0px #00000016;
+    padding: 6px 10px;
+  }
+
+  .component-content img {
+    width: 60px;
+    height: 91px;
+    opacity: 1;
+  }
+
+  .component-content_list {
+    flex-direction: column;
+    width: 307px;
+    height: 103px;
+    opacity: 1;
+    gap: 7px;
+    padding-left: 13px;
+  }
+
+  .component-content_item {
+    flex-direction: column;
+    order: 3;
+    width: 367px;
+    height: 138px;
+  }
+
+  .component-content_title {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .component-content_title-text{
+    display: flex;
+    justify-content: center;
+    width: auto;
+    height: 28px;
+    opacity: 1;
+    font-family: Inter;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 28px;
+    letter-spacing: 0%;
+    vertical-align: middle;
+  }
+
+  .component-content_rating {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 30px;
+    height: 30px;
+    opacity: 1;
+    border: 2px solid #E9D100;
+    border-radius: 50px;
+    font-family: Inter;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 22px;
+    letter-spacing: 0px;
+    vertical-align: middle;
+  }
+
+  .component-content_data {
+    display: flex;
+    align-items: center;
+    width: auto;
+    height: 22px;
+    opacity: 1;
+    font-family: Inter;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 22px;
+    letter-spacing: 0px;
+    vertical-align: middle;
+  }
+
+  .component-content_buttons {
+    display: flex;
+    align-items: center;
+    gap: 17px;
+    color: #000000A6;
+    margin-top: 9px;
+  }
+
+  .component-content_text {
+    width: auto;
+    height: 92px;
+    opacity: 1;
+    order: 3;
+  }
+
+  .component-content_text p {
+    width: auto;
+    height: auto;
+    opacity: 1;
+    font-family: Inter;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 22px;
+    letter-spacing: 0px;
+  }
+
+  .component-content_stars {
+    align-items: center;
+    justify-content: space-between;
+    width: auto;
+    height: 46px;
+    opacity: 1;
+    margin-left: 148px;
+    order: 3;
+  }
+
+  .component-content_stars img {
+    width: 15px;
+    height: 15px;
+    opacity: 1;
+    background: #D9D9D9;
+  }
+}
+

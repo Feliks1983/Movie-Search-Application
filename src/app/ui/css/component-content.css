@@ -1,0 +1,130 @@
+@media screen and (min-width: 1010px) {
+  .component-content {
+    display: grid;
+    grid-template-columns: auto auto auto;
+    width: 451px;
+    height: 279px;
+    margin-top: 34px;
+    background: #ffffff;
+    box-shadow: 0px 4px 12px 0px #00000026;
+  }
+
+  .component-content img {
+    width: 183px;
+    height: 281px;
+    opacity: 1;
+    grid-column: 1 / span 2;
+    grid-row: 1 / span 2;
+  }
+
+  .component-content_list {
+    display: flex;
+    flex-direction: column;
+    width: 268px;
+    height: 104px;
+    opacity: 1;
+    gap: 7px;
+    padding: 10px 10px 0 20px;
+  }
+
+  .component-content_item {
+    display: flex;
+    flex-direction: column;
+    width: auto;
+    height: 175px;
+  }
+
+  .component-content_title {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .component-content_title-text{
+    display: flex;
+    justify-content: center;
+    width: auto;
+    height: 28px;
+    opacity: 1;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 28px;
+    letter-spacing: 0%;
+    vertical-align: middle;
+  }
+
+  .component-content_rating {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 30px;
+    height: 30px;
+    opacity: 1;
+    border: 2px solid #E9D100;
+    border-radius: 50px;
+    font-family: Inter;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 22px;
+    letter-spacing: 0px;
+    vertical-align: middle;
+  }
+
+  .component-content_data {
+    display: flex;
+    align-items: center;
+    width: auto;
+    height: 22px;
+    opacity: 1;
+    font-family: Inter;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 22px;
+    letter-spacing: 0px;
+    vertical-align: middle;
+  }
+
+  .component-content_buttons {
+    display: flex;
+    align-items: center;
+    gap: 17px;
+    color: #000000A6;
+    margin-top: 9px;
+  }
+
+  .component-content_text {
+    width: auto;
+    height: 129px;
+    opacity: 1;
+    margin-left: 20px;
+    margin-top: 10px;
+  }
+
+  .component-content_text p {
+    width: auto;
+    height: 129px;
+    opacity: 1;
+    font-family: Inter;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 22px;
+    letter-spacing: 0px;
+  }
+
+  .component-content_stars {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: auto;
+    height: 46px;
+    opacity: 1;
+    gap: 10px;
+  }
+
+  .component-content_stars img {
+    width: 15px;
+    height: 15px;
+    opacity: 1;
+    background: #D9D9D9;
+  }
+
+}

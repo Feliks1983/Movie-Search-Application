@@ -1,0 +1,24 @@
+@media screen and (min-width: 1010px) {
+  .searchContainerStyle {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 1010px;
+    height: 53.77px;
+    opacity: 1;
+    margin-top: 19.23px;
+  }
+
+}
+
+@media screen and (min-width: 420px) and (max-width: 1010px) {
+  .searchContainerStyle {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 388px;
+    height: 53.77px;
+    opacity: 1;
+    margin-top: 19.23px;
+  }
+}
