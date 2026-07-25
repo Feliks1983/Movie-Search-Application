@@ -3,22 +3,32 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
     width: 1010px;
-    height: 53.77px;
+    height: auto;
     opacity: 1;
     margin-top: 19.23px;
   }
 
+  .searchContainerStyle input {
+    width: 938px;
+    height: 40px;
+  }
 }
 
-@media screen and (min-width: 420px) and (max-width: 1010px) {
+@media screen and (max-width: 1010px) {
   .searchContainerStyle {
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 388px;
-    height: 53.77px;
+    flex-direction: column;
+    width: 420px;
+    height: auto;
     opacity: 1;
     margin-top: 19.23px;
+  }
+
+  .searchContainerStyle input {
+    width: 388px;
   }
 }

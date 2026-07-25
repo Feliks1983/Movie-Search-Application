@@ -2,23 +2,10 @@
 import { useRouter, useSearchParams } from "next/navigation";
 import { Layout } from "antd";
 import PaginationContainer from "./pagination";
+import './css/footer.css'
 
 const { Footer } = Layout;
 
-const footerStyle = {
-  display: "flex",
-  justifyContent: "center",
-  width: 204,
-  height: 24,
-  opacity: 1,
-  background: "none",
-};
-
-const footerContainerStyle = {
-  display: "flex",
-  justifyContent: "center",
-  marginTop: 36,
-};
 
 export default function ComponentFooter({ current, total, pageSize }) {
   const router = useRouter();
@@ -29,8 +16,8 @@ export default function ComponentFooter({ current, total, pageSize }) {
     router.push(`/?query=${encodeURIComponent(query)}&page=${newPage}`);
   };
   return (
-    <div style={footerContainerStyle}>
-      <Footer style={footerStyle}>
+    <div className="footerContainerStyle">
+      <Footer>
         <PaginationContainer
           current={current}
           total={total}

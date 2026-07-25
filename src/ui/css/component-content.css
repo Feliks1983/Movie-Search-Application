@@ -1,35 +1,37 @@
-
-@media screen and (min-width: 420px) and (max-width: 1010px) {
+@media screen and (min-width: 1010px) {
   .component-content {
-    display: flex;
-    width: 388px;
-    flex-wrap: wrap;
-    height: 245px;
+    display: grid;
+    grid-template-columns: auto auto auto;
+    width: 451px;
+    height: 279px;
     margin-top: 34px;
-    box-shadow: 0px 4px 12px 0px #00000016;
-    padding: 6px 10px;
+    background: #ffffff;
+    box-shadow: 0px 4px 12px 0px #00000026;
   }
 
   .component-content img {
-    width: 60px;
-    height: 91px;
+    width: 183px;
+    height: 281px;
     opacity: 1;
+    grid-column: 1 / span 2;
+    grid-row: 1 / span 2;
   }
 
   .component-content_list {
+    display: flex;
     flex-direction: column;
-    width: 307px;
-    height: 103px;
+    width: 268px;
+    height: 104px;
     opacity: 1;
     gap: 7px;
-    padding-left: 13px;
+    padding: 10px 10px 0 20px;
   }
 
   .component-content_item {
+    display: flex;
     flex-direction: column;
-    order: 3;
-    width: 367px;
-    height: 138px;
+    width: auto;
+    height: 175px;
   }
 
   .component-content_title {
@@ -43,7 +45,6 @@
     width: auto;
     height: 28px;
     opacity: 1;
-    font-family: Inter;
     font-weight: 400;
     font-size: 20px;
     line-height: 28px;
@@ -74,6 +75,7 @@
     width: auto;
     height: 22px;
     opacity: 1;
+     color: #827E7E;
     font-family: Inter;
     font-weight: 400;
     font-size: 12px;
@@ -92,14 +94,15 @@
 
   .component-content_text {
     width: auto;
-    height: 92px;
+    height: 129px;
     opacity: 1;
-    order: 3;
+    margin-left: 20px;
+    margin-top: 10px;
   }
 
   .component-content_text p {
     width: auto;
-    height: auto;
+    height: 129px;
     opacity: 1;
     font-family: Inter;
     font-weight: 400;
@@ -109,13 +112,13 @@
   }
 
   .component-content_stars {
+    display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
     width: auto;
     height: 46px;
     opacity: 1;
-    margin-left: 148px;
-    order: 3;
+    gap: 10px;
   }
 
   .component-content_stars img {
@@ -124,5 +127,5 @@
     opacity: 1;
     background: #D9D9D9;
   }
-}
 
+}

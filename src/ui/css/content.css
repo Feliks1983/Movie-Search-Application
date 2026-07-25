@@ -8,16 +8,15 @@
     opacity: 1;
     column-gap: 36px;
     margin-left: 36px;
-  }
-}
+  }}
 
-@media screen and (min-width: 420px) and (max-width: 1010px) {
+@media screen and (max-width: 1010px) {
   .content-style, main {
     display: grid;
+    justify-content: center;
     width: 420px;
     height: 100%;
     opacity: 1;
-    column-gap: 36px;
   }
 }
 

@@ -5,10 +5,7 @@ import "./css/content.css";
 
 const { Content } = Layout;
 
-export default function ContainerContent({
-  post = [],
-  videos = [],
-}) {
+export default function ContainerContent({ post = [], loading, error }) {
   return (
     <div className="content-style">
       <Content>
@@ -16,12 +13,12 @@ export default function ContainerContent({
           <p>No results found.</p>
         ) : (
           post.map((movie) => {
-            const video = videos.find((v) => v.movieId === movie.id);
             return (
               <ComponentContent
                 key={movie.id}
                 movie={movie}
-                video={video?.video || null}
+                loading={loading}
+                error={error}
               />
             );
           })

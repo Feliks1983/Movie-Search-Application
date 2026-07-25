@@ -1,6 +1,6 @@
 "use client"; 
 import { useEffect } from "react";
-import { AlertError } from "../ui/alert";
+import { AlertError } from "../../ui/alert";
 
 export default function ErrorPage({
   error,

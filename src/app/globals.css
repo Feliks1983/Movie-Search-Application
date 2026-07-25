@@ -6,6 +6,7 @@
 
 body{
   font-family: Inter;
+  color: #000000;
 }
 
 @font-face {
@@ -25,7 +26,7 @@ body{
     display: flex;
     justify-content: center;
     width: 1010px;
-    height: 1147px;
+    height: 100%;
     opacity: 1;
     background: #fff;
   }
@@ -35,7 +36,7 @@ body{
   }
 }
 
-@media screen and (min-width: 420px) and (max-width: 1010px) {
+@media screen and (max-width: 1010px) {
   .container {
     display: flex;
     justify-content: center;
@@ -47,12 +48,11 @@ body{
     display: flex;
     justify-content: center;
     width: 420px;
-    height: 1755px;
+    height: 100%;
     background: #fff;
   }
 
   .page div {
-    display: flex;
     background: #fff;
   }
 }

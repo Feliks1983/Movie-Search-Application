@@ -29,4 +29,5 @@ export const OfflineAlert: React.FC = () => (
   />
 );
 
-export default { MessageAlert, AlertError, OfflineAlert };
+const alerts = { MessageAlert, AlertError, OfflineAlert };
+export default alerts;

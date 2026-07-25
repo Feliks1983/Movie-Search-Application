@@ -16,7 +16,7 @@ const headerStyle = {
 const headerContainerStyle = {
   display: "flex",
   justifyContent: "center",
-  width: '100%',
+  width: 'auto',
 };
 
 export default function ComponentHeader() {

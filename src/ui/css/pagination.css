@@ -2,9 +2,8 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: 16px;
-  width: 287px;
-  height: 44px;
+  width: auto;
+  height: auto;
   opacity: 1;
   list-style: none;
 }
