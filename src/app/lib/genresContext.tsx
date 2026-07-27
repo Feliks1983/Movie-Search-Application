@@ -1,10 +1,12 @@
 "use client";
 import { createContext, useContext, useEffect, useState } from "react";
 
-const GenresContext = createContext([]);
+type Genre = { id: number; name: string };
+
+const GenresContext = createContext<Genre[]>([]);
 
 export function GenresProvider({ children }: { children: React.ReactNode }) {
-  const [genres, setGenres] = useState([]);
+  const [genres, setGenres] = useState<Genre[]>([]);
 
   useEffect(() => {
     async function fetchGenres() {
@@ -15,10 +17,9 @@ export function GenresProvider({ children }: { children: React.ReactNode }) {
           setGenres(data.genres || []);
         }
       } catch {}
-      fetchGenres();
     }
-    [];
-  });
+    fetchGenres();
+  }, []);
 
   return (
     <GenresContext.Provider value={genres}>{children}</GenresContext.Provider>

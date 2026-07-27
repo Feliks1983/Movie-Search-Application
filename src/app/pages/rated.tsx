@@ -62,7 +62,7 @@ export default function Rated() {
        setMovies(data.results || []);
        setTotalResults(data.totalResults || 0);
        setLoading(false);
-     } catch (err) {
+     } catch {
        if (!navigator.onLine) {
          setError("There is no internet connection.");
        } else {
