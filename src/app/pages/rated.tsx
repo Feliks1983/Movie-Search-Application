@@ -13,7 +13,7 @@ export default function Rated() {
   const [movies, setMovies] = useState([]);
   const [totalResults, setTotalResults] = useState(0);
   const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
+  const [error, setError] = useState<string | null>(null);
   const [isOnline, setIsOnline] = useState(() =>
     typeof navigator !== "undefined" ? navigator.onLine : true,
   );
@@ -49,7 +49,7 @@ export default function Rated() {
          console.log(session);
          
          guest = session.guest_session_id;
-         localStorage.setItem("rated", dataApi);
+         localStorage.setItem("rated", JSON.stringify(dataApi));
        }
 
        const res = await fetch(
