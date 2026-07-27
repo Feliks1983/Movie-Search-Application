@@ -47,6 +47,6 @@
     "src/app/ui/tabs.jsx",
     "src/app/api/move/route.ts",
     "src/app/api/video/route.ts"
-  ],
+, "src/app/dashboard/error.tsx"  ],
   "exclude": ["node_modules"]
 }

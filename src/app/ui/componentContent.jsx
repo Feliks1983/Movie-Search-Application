@@ -27,7 +27,7 @@ export default function ComponentContent({ movie, loading, error }) {
   if (error)
     return (
       <div>
-        <ErrorPage />
+        <ErrorPage error={error} />
       </div>
     );
 

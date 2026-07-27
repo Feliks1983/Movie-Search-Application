@@ -2,14 +2,14 @@
 import { useEffect } from "react";
 import { AlertError } from "../ui/alert";
 
-export default function ErrorPage({
-  error,
-}: {
-  error: Error & { digest?: string };
-  unstable_retry: () => void;
-}) {
+type ErrorPageProps = {
+  error?: (Error & { digest?: string }) | string | null;
+  unstable_retry?: () => void;
+};
+
+export default function ErrorPage({ error, unstable_retry }: ErrorPageProps) {
   useEffect(() => {
-    console.error(error);
+    if (error) console.error(error);
   }, [error]);
 
   return (
