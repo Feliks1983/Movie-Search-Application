@@ -3,14 +3,14 @@ import { format } from "date-fns";
 import Buttons from "./button";
 import "./css/component-content.css";
 import Image from "next/image";
-import Profile from "../../public/assets/img.png";
-import Star from "../../public/assets/tile0.png";
-import StarHalf from "../../public/assets/tile2.png";
-import StarDefault from "../../public/assets/tile3.png";
+import Profile from "../../../public/assets/img.png";
+import Star from "../../../public/assets/tile0.png";
+import StarHalf from "../../../public/assets/tile2.png";
+import StarDefault from "../../../public/assets/tile3.png";
 import { Description } from "../utils/description.js";
 import "./css/mobile-component.css";
 import LoadSpin from "./spin";
-import ErrorPage from "../app/dashboard/error";
+import ErrorPage from "../dashboard/error";
 
 function getStar(rating = 0, maxStars = 10) {
   const star = (rating / 10) * maxStars;
@@ -24,8 +24,20 @@ function getStar(rating = 0, maxStars = 10) {
 }
 
 export default function ComponentContent({ movie, loading, error }) {
-  if (!movie) return null;
+  if (error)
+    return (
+      <div>
+        <ErrorPage />
+      </div>
+    );
 
+  if (loading)
+    return (
+      <div>
+        <LoadSpin />
+      </div>
+    );
+  if (!movie) return null;
   const { vote_average = 0, poster_path } = movie;
 
   const posterSrc = poster_path
@@ -35,19 +47,6 @@ export default function ComponentContent({ movie, loading, error }) {
   const stars = getStar(vote_average);
   const voteAverage = Math.floor(vote_average);
 
-  if (error)
-    return (
-      <div>
-        <ErrorPage />
-      </div>
-    );
-
-  if (!loading)
-    return (
-      <div>
-        <LoadSpin />
-      </div>
-    );
   return (
     <div className="component-content">
       <Image

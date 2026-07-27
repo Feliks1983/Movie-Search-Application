@@ -12,7 +12,7 @@ export default function ComponentFooter({ current, total, pageSize }) {
   const searchParams = useSearchParams();
 
   const handleChange = (newPage) => {
-    const query = searchParams.get("query") || "return";
+    const query = searchParams.get("query") || "";
     router.push(`/?query=${encodeURIComponent(query)}&page=${newPage}`);
   };
   return (

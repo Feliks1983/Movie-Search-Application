@@ -28,7 +28,25 @@
     "**/*.tsx",
     ".next/types/**/*.ts",
     ".next/dev/types/**/*.ts",
-    "**/*.mts"
-, "app/components/pagination.tsx", "app/components/header.tsx", "app/components/search.tsx", "app/components/tabs.tsx", "app/components/footer.tsx", "app/components/content.tsx", "app/components/componentContent.tsx", "app/components/button.tsx", "src/ui/componentContent.jsx", "src/ui/button.jsx", "src/ui/content.jsx", "src/ui/footer.jsx", "src/ui/header.jsx", "src/ui/pagination.jsx", "src/ui/search.jsx", "src/ui/tabs.jsx", "src/app/api/move/route.ts", "src/app/api/video/route.ts"  ],
+    "**/*.mts",
+    "app/components/pagination.tsx",
+    "app/components/header.tsx",
+    "app/components/search.tsx",
+    "app/components/tabs.tsx",
+    "app/components/footer.tsx",
+    "app/components/content.tsx",
+    "app/components/componentContent.tsx",
+    "app/components/button.tsx",
+    "src/app/ui/componentContent.jsx",
+    "src/app/ui/button.jsx",
+    "src/app/ui/content.jsx",
+    "src/app/ui/footer.jsx",
+    "src/app/ui/header.jsx",
+    "src/app/ui/pagination.jsx",
+    "src/app/ui/search.jsx",
+    "src/app/ui/tabs.jsx",
+    "src/app/api/move/route.ts",
+    "src/app/api/video/route.ts"
+  ],
   "exclude": ["node_modules"]
 }
