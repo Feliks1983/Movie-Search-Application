@@ -1,4 +1,5 @@
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+npx plugins add vercel/vercel-plugin
 
 ## Getting Started
 npx create-next-app@latest name-projects
