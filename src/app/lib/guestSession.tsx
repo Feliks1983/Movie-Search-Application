@@ -1,10 +1,10 @@
 "use client";
 import { createContext, useContext, useEffect, useState } from "react";
 
-const context = createContext(null);
+const context = createContext<string | null>(null);
 
 export function GuestProvider({ children }: { children: React.ReactNode }) {
-  const [guest, setGuest] = useState(null);
+  const [guest, setGuest] = useState<string | null>(null);
 
   useEffect(() => {
     async function init() {
