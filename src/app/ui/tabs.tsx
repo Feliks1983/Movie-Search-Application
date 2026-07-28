@@ -2,8 +2,8 @@
 import { Suspense } from "react";
 import { Tabs } from "antd";
 import { createStaticStyles } from "antd-style";
-import Search from "../pages/search";
-import Rated from "../pages/rated";
+import Search from "../search/search";
+import Rated from "../rated/rated";
 import { GuestProvider } from "../lib/guestSession";
 
 const styleTabs = createStaticStyles(({ css }) => ({
