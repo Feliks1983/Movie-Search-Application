@@ -1,0 +1,14 @@
+.header-ui {
+  display: flex;
+  justify-content: center;
+  width: auto;
+}
+
+.header-ui header {
+  display: flex;
+  justify-content: center;
+  width: auto;
+  height: 53.8;
+  opacity: 1;
+  background: #FFFFFF;
+}

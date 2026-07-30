@@ -1,16 +1,14 @@
 "use client";
 import { useEffect, useState } from "react";
 import { useSearchParams } from "next/navigation";
-import { Layout } from "antd";
-import ContainerContent from "../ui/content";
-import ComponentFooter from "../ui/footer";
-import SearchContainer from "../ui/search";
+import ContainerContent from "../ui/Content";
+import ComponentFooter from "../ui/Footer";
+import { useGuest } from "../lib/guestSession";
 
 const size = 20;
 
-export default function Search() {
+export default function Rated() {
   const search = useSearchParams();
-  const query = search.get("query") || "";
   const othePage = Number(search.get("page")) || 1;
   const [movies, setMovies] = useState([]);
   const [totalResults, setTotalResults] = useState(0);
@@ -19,6 +17,7 @@ export default function Search() {
   const [isOnline, setIsOnline] = useState(() =>
     typeof navigator !== "undefined" ? navigator.onLine : true,
   );
+  const guestSession = useGuest();
 
   useEffect(() => {
     const handleOnline = () => setIsOnline(true);
@@ -38,20 +37,19 @@ export default function Search() {
         setError("There is no internet connection.");
         return;
       }
+      if(!guestSession) return;
       setLoading(true);
       setError(null);
       try {
-        const res = await fetch(
-          `/api/move?query=${encodeURIComponent(query)}&page=${othePage}`,
+        const guest = await fetch(
+          `/api/rated?guest_session_id=${guestSession}&page=${othePage}`,
         );
-        if (!res.ok) {
-          throw new Error(`Request failed with status ${res.status}`);
+        if (!guest.ok) {
+            throw new Error(`Guest session status ${guest.status}`);
         }
-        const data = await res.json();
-        console.log(data);
+        const data = await guest.json();
         setMovies(data.results || []);
         setTotalResults(data.totalResults || 0);
-        setLoading(false);
       } catch {
         if (!navigator.onLine) {
           setError("There is no internet connection.");
@@ -60,25 +58,24 @@ export default function Search() {
         }
         setMovies([]);
         setTotalResults(0);
-        setLoading(false);
-      }
+      } finally {setLoading(false);}
     }
     fetchMovies();
-  }, [query, othePage, isOnline]);
+  }, [othePage, isOnline, guestSession]);
 
   return (
-    <div className="container">
-      <div className="page">
-        <Layout>
-          <SearchContainer />
-          <ContainerContent post={movies} loading={loading} error={error} />
-          <ComponentFooter
-            current={othePage}
-            total={totalResults}
-            pageSize={size}
-          />
-        </Layout>
-      </div>
-    </div>
+    <>
+      <ContainerContent
+        post={movies}
+        loading={loading}
+        error={error}
+        readOnlyRating
+      />
+      <ComponentFooter
+        current={othePage}
+        total={totalResults}
+        pageSize={size}
+      />
+    </>
   );
 }

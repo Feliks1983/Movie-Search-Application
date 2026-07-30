@@ -17,14 +17,16 @@ export async function GET(request: Request) {
       { status: 400 },
     );
   }
-
   const res = await fetch(
-    `https://api.themoviedb.org/3/guest_session/${guestSessionId}/rated/movies?api_key=${apiKey}&page=${page}`,
+    `https://api.themoviedb.org/3/guest_session/${guestSessionId}/rated/movies?api_key=${apiKey}&page=${page}&sort_by=created_at.asc`,
     { cache: "no-store" },
   );
-  
+
   if (!res.ok) {
     const error = await res.text();
+    if (res.status === 404) {
+      return NextResponse.json({ results: [], totalResults: 0 });
+    }
     return NextResponse.json(
       { error: "TMDB request failed", details: error },
       { status: res.status },

@@ -39,14 +39,15 @@
     "app/components/button.tsx",
     "src/app/ui/componentContent.jsx",
     "src/app/ui/button.jsx",
-    "src/app/ui/content.jsx",
-    "src/app/ui/footer.jsx",
+    "src/app/ui/Content.jsx",
+    "src/app/ui/Footer.jsx",
     "src/app/ui/header.jsx",
-    "src/app/ui/pagination.jsx",
+    "src/app/ui/Pagination.jsx",
     "src/app/ui/search.jsx",
     "src/app/ui/tabs.jsx",
     "src/app/api/move/route.ts",
-    "src/app/api/video/route.ts"
-, "src/app/dashboard/error.tsx"  ],
+    "src/app/api/video/route.ts",
+    "src/app/dashboard/error.tsx"
+, "src/ui/Buttons.jsx", "src/ui/Rate.jsx"  ],
   "exclude": ["node_modules"]
 }

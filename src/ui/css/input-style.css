@@ -1,5 +1,5 @@
 @media screen and (min-width: 1010px) {
-  .searchContainerStyle {
+  .search-ui {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -10,14 +10,14 @@
     margin-top: 19.23px;
   }
 
-  .searchContainerStyle input {
+  .search-ui input {
     width: 938px;
     height: 40px;
   }
 }
 
 @media screen and (max-width: 1010px) {
-  .searchContainerStyle {
+  .search-ui {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -28,7 +28,7 @@
     margin-top: 19.23px;
   }
 
-  .searchContainerStyle input {
+  .search-ui input {
     width: 388px;
   }
 }

@@ -2,19 +2,9 @@
 import { Input } from "antd";
 import { useState, useMemo, useEffect, useCallback } from "react";
 import { useRouter } from "next/navigation";
-import "./css/search-style.css";
-import { OfflineAlert } from "./alert";
-
-const debounce = <T extends (...args: string[]) => void>(
-  fn: T,
-  debounceTime = 500,
-) => {
-  let timer: ReturnType<typeof setTimeout>;
-  return (...args: Parameters<T>) => {
-    clearTimeout(timer);
-    timer = setTimeout(() => fn(...args), debounceTime);
-  };
-};
+import "./css/input-style.css";
+import { OfflineAlert } from "./Alert";
+import debounce from "../app/utils/debonce";
 
 export default function SearchContainer() {
   const [value, setValue] = useState("");
@@ -59,7 +49,7 @@ export default function SearchContainer() {
   };
 
   return (
-    <div className="searchContainerStyle">
+    <div className="search-ui">
       <Input
         placeholder="Type to search"
         value={value}

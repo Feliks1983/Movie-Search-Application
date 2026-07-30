@@ -2,19 +2,24 @@
 import { Layout } from "antd";
 import ComponentContent from "./componentContent";
 import "./css/content.css";
-import LoadSpin from "./spin";
-import ErrorPage from "../dashboard/error";
+import LoadSpin from "./Spin";
+import ErrorPage from "../app/dashboard/error";
 
 const { Content } = Layout;
 
-export default function ContainerContent({ post = [], loading, error }) {
+export default function ContainerContent({
+  post = [],
+  loading,
+  error,
+  readOnlyRating = false,
+}) {
   return (
     <div className="content-style">
       <Content>
         {loading ? (
           <LoadSpin />
         ) : error ? (
-          <ErrorPage />
+          <ErrorPage error={error} />
         ) : post.length === 0 ? (
           <p>No results found.</p>
         ) : (
@@ -24,6 +29,7 @@ export default function ContainerContent({ post = [], loading, error }) {
               movie={movie}
               loading={loading}
               error={error}
+              readOnlyRating={readOnlyRating}
             />
           ))
         )}

@@ -1,30 +1,14 @@
 "use client";
 import { Suspense } from "react";
 import { Tabs } from "antd";
-import { createStaticStyles } from "antd-style";
-import Search from "../search/search";
-import Rated from "../rated/rated";
+import Search from "../search/page";
+import Rated from "../rated/page";
 import { GuestProvider } from "../lib/guestSession";
-
-const styleTabs = createStaticStyles(({ css }) => ({
-  item: css`
-    color: #000000a6;
-    font-family: Inter;
-    font-weight: 400;
-    font-size: 14px;
-    line-height: 22px;
-    letter-spacing: 0;
-    text-align: center;
-
-    .ant-tabs-tab-active & {
-      color: #1890ff;
-    }
-  `,
-}));
+import './css/tabs.css'
 
 const items = [
   {
-    label: <span className={styleTabs.item}>Search</span>,
+    label: <span className="style-tabs">Search</span>,
     key: "1",
     children: (
       <Suspense fallback={null}>
@@ -33,7 +17,7 @@ const items = [
     ),
   },
   {
-    label: <span className={styleTabs.item}>Rated</span>,
+    label: <span className="style-tabs">Rated</span>,
     key: "2",
     children: (
       <Suspense fallback={null}>

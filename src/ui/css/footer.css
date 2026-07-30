@@ -1,5 +1,5 @@
 @media screen and (min-width: 1010px) {
-  .footerContainerStyle footer {
+  .footer-ui footer {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -9,7 +9,7 @@
     background: none;
   }
 
-  .footerContainerStyle {
+  .footer-ui {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -18,7 +18,7 @@
 }
 
 @media screen and (max-width: 1010px) {
-  .footerContainerStyle footer {
+  .footer-ui footer {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -28,7 +28,7 @@
     background: none;
   }
 
-  .footerContainerStyle {
+  .footer-ui {
     display: flex;
     align-items: center;
     justify-content: center;
