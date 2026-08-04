@@ -56,13 +56,13 @@ export default function ComponentContent({ movie, loading, error, readOnlyRating
             : "Date unknown"}
         </div>
         <div className="component-content_buttons">
-          <Buttons />
+          <Buttons genreIds={movie.genre_ids} />
         </div>
       </div>
       <div className="component-content_item">
         <div className="component-content_text">
           <p>
-            {Description(movie.overview, 150) || "No description available."}
+            {Description(movie.overview, 50) || "No description available."}
           </p>
         </div>
         <div className="component-content_stars">

@@ -12,24 +12,32 @@ type RatingsMap = Record<number, number>;
 type RatedMovie = {
   id: number;
   rating?: number;
-}
+};
 
 const RatingsContext = createContext<{
   ratings: RatingsMap;
+  loading: boolean;
+  error: string | null;
   setRating: (movieId: number, value: number) => void;
 }>({
   ratings: {},
+  loading: true,
+  error: null,
   setRating: () => {},
 });
 
 export function RatingsProvider({ children }: { children: React.ReactNode }) {
-  const guestSessionId = useGuest();
+  const { guest: guestSessionId } = useGuest();
   const [ratings, setRatings] = useState<RatingsMap>({});
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
     if (!guestSessionId) return;
 
     async function fetchRatings() {
+      setLoading(true);
+      setError(null);
       try {
         const res = await fetch(
           `/api/rated?guest_session_id=${guestSessionId}&page=1`,
@@ -44,7 +52,13 @@ export function RatingsProvider({ children }: { children: React.ReactNode }) {
           }
         });
         setRatings(map);
-      } catch {
+      } catch (err) {
+        const message =
+          err instanceof Error ? err.message : "Failed to load ratings";
+        console.error("RatingProvider fetch error:", message);
+        setError(message);
+      } finally {
+        setLoading(false);
       }
     }
     fetchRatings();
@@ -55,7 +69,7 @@ export function RatingsProvider({ children }: { children: React.ReactNode }) {
   }, []);
 
   return (
-    <RatingsContext.Provider value={{ ratings, setRating }}>
+    <RatingsContext.Provider value={{ ratings, setRating, loading, error }}>
       {children}
     </RatingsContext.Provider>
   );

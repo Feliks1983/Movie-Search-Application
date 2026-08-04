@@ -1,14 +1,19 @@
 "use client";
 import { Tag } from "antd";
 import './css/button-mobile.css'
+import { useGenres } from "../lib/genresContext";
 
-const tagsData = ["Action", "Drama"];
+export default function Buttons({ genreIds }) {
+  const {genres} = useGenres();
+    const genreNames = genreIds
+    .map((id) => genres.find((g) => g.id === id)?.name)
+    .filter(Boolean);
 
-export default function Buttons() {
+  if (genreNames.length === 0) return null;
   return (
     <div className="button">
-      {tagsData.map((tag) => (
-        <Tag key={tag}>{tag}</Tag>
+      {genreNames.map((name) => (
+        <Tag key={name}>{name}</Tag>
       ))}
     </div>
   );

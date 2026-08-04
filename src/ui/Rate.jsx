@@ -1,30 +1,15 @@
 "use client";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { Rate, message } from "antd";
 import { useGuest } from "../lib/guestSession";
+import { useRatings } from "../lib/ratingsContext";
 
 export default function RateMove({ movieId, readOnly = false }) {
-  const guestSessionId = useGuest();
-  const [value, setValue] = useState(0);
+  const {guest: guestSessionId} = useGuest();
   const [submit, setSubmit] = useState(false);
+  const { ratings, setRating } = useRatings();
 
-  useEffect(() => {
-    if (!guestSessionId) return;
-    async function loadRating() {
-      try {
-        const res = await fetch(
-          `/api/rated?guest_session_id=${guestSessionId}&page=1`,
-        );
-        if (!res.ok) return;
-        const data = await res.json();
-        const rated = (data.results || []).find((m) => m.id === movieId);
-        if (rated?.rating !== undefined) {
-          setValue(rated.rating);
-        }
-      } catch {}
-    }
-    loadRating();
-  }, [guestSessionId, movieId]);
+  const value = ratings[movieId] ?? 0;
 
   async function handleChange(newValue) {
     if(readOnly) return;
@@ -32,7 +17,6 @@ export default function RateMove({ movieId, readOnly = false }) {
       message.error("Session is not ready.");
       return;
     }
-    const tmdbValue = newValue;
     setSubmit(true);
     try {
       const res = await fetch("/api/rate", {
@@ -41,11 +25,11 @@ export default function RateMove({ movieId, readOnly = false }) {
         body: JSON.stringify({
           movieId,
           guestSessionId,
-          value: tmdbValue,
+          value: newValue,
         }),
       });
       if (!res.ok) throw new Error("Rate request failed");
-      setValue(newValue);
+      setRating(movieId, newValue);
       message.success("Rating saved");
     } catch {
       message.error("Failed to save rating");

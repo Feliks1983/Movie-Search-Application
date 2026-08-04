@@ -3,12 +3,13 @@ import { useEffect, useState } from "react";
 import { useSearchParams } from "next/navigation";
 import ContainerContent from "../ui/Content";
 import ComponentFooter from "../ui/Footer";
-import { useGuest } from "../lib/guestSession";
+import SearchContainer from "../ui/Input";
 
 const size = 20;
 
-export default function Rated() {
+export default function Search() {
   const search = useSearchParams();
+  const query = search.get("query") || "";
   const othePage = Number(search.get("page")) || 1;
   const [movies, setMovies] = useState([]);
   const [totalResults, setTotalResults] = useState(0);
@@ -17,7 +18,6 @@ export default function Rated() {
   const [isOnline, setIsOnline] = useState(() =>
     typeof navigator !== "undefined" ? navigator.onLine : true,
   );
-  const guestSession = useGuest();
 
   useEffect(() => {
     const handleOnline = () => setIsOnline(true);
@@ -37,17 +37,16 @@ export default function Rated() {
         setError("There is no internet connection.");
         return;
       }
-      if(!guestSession) return;
       setLoading(true);
       setError(null);
       try {
-        const guest = await fetch(
-          `/api/rated?guest_session_id=${guestSession}&page=${othePage}`,
+        const res = await fetch(
+          `/api/move?query=${encodeURIComponent(query)}&page=${othePage}`,
         );
-        if (!guest.ok) {
-            throw new Error(`Guest session status ${guest.status}`);
+        if (!res.ok) {
+          throw new Error(`Request failed with status ${res.status}`);
         }
-        const data = await guest.json();
+        const data = await res.json();
         setMovies(data.results || []);
         setTotalResults(data.totalResults || 0);
       } catch {
@@ -58,19 +57,17 @@ export default function Rated() {
         }
         setMovies([]);
         setTotalResults(0);
-      } finally {setLoading(false);}
+      } finally {
+        setLoading(false);
+      }
     }
     fetchMovies();
-  }, [othePage, isOnline, guestSession]);
+  }, [query, othePage, isOnline]);
 
   return (
     <>
-      <ContainerContent
-        post={movies}
-        loading={loading}
-        error={error}
-        readOnlyRating
-      />
+      <SearchContainer />
+      <ContainerContent post={movies} loading={loading} error={error} />
       <ComponentFooter
         current={othePage}
         total={totalResults}

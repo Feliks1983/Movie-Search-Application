@@ -1,10 +1,12 @@
 "use client";
 import { Suspense } from "react";
 import { Tabs } from "antd";
-import Search from "../search/page";
-import Rated from "../rated/page";
+import Search from "../search/Search";
+import Rated from "../rated/Rated";
 import { GuestProvider } from "../lib/guestSession";
-import './css/tabs.css'
+import { RatingsProvider } from "../lib/ratingsContext";
+import { GenresProvider } from "../lib/genresContext";
+import "./css/tabs.css";
 
 const items = [
   {
@@ -30,7 +32,11 @@ const items = [
 const ComponentTabs = () => {
   return (
     <GuestProvider>
-      <Tabs items={items} defaultActiveKey="1" centered />
+      <RatingsProvider>
+        <GenresProvider>
+          <Tabs items={items} defaultActiveKey="1" centered />
+        </GenresProvider>
+      </RatingsProvider>
     </GuestProvider>
   );
 };
